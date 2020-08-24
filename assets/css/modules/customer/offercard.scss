@@ -1,0 +1,27 @@
+.OfferCard__wrapper {
+  .el-card__body {
+    padding: 10px;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+
+    p {
+      flex: 1;
+    }
+
+    img {
+      max-height: 40px;
+      margin-right: 10px;
+    }
+  }
+
+  .content {
+    margin: 10px 0;
+  }
+
+  .el-button {
+    width: 100%;
+  }
+}

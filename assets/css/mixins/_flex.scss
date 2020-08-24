@@ -1,0 +1,33 @@
+@mixin display($display) {
+  display: -webkit-+$display;
+  /* Safari */
+  display: $display;
+}
+
+@mixin justify-content($position) {
+  -webkit-justify-content: $position;
+  /* Safari 6.1+ */
+  justify-content: $position;
+}
+
+@mixin align-items($direction) {
+  -webkit-box-align: $direction;
+  -ms-flex-align: $direction;
+  align-items: $direction;
+}
+
+@mixin flexDirection($direction) {
+  -webkit-flex-direction: $direction;
+  flex-direction: $direction;
+}
+
+@mixin flexWrap($wrap) {
+  -webkit-flex-wrap: $wrap;
+  flex-wrap: $wrap;
+}
+
+@mixin flex() {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}

@@ -1,0 +1,13 @@
+@mixin propertyCalc($property,$expression){
+	#{$property}: -webkit-calc(#{$expression});
+	#{$property}: -moz-calc(#{$expression});
+	#{$property}: -ms-calc(#{$expression});
+	#{$property}: -o-calc(#{$expression});
+	#{$property}: calc(#{$expression});
+}
+
+@mixin vertical-margins($top, $bottom: $top) {
+	margin-top: $top;
+	margin-bottom: $bottom;
+}
+ 

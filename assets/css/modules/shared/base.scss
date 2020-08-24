@@ -1,0 +1,140 @@
+//Global reset
+ol, ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+//Social Icons
+.socials__item {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.socials__item .icon {
+  width: 100%;
+  height: 100%;
+  fill: rgba(139,150,163,.7);
+  color: #313a45;
+}
+.socials__item:hover.socials__item--facebook .icon {
+  fill: #37589a;
+}
+.socials__item:hover.socials__item--twitter .icon {
+  fill: #099;
+}
+.socials__item:hover .icon {
+  color: #fff;
+}
+.icon, [class*=" icon--"], [class^=icon--] {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  overflow: hidden;
+  fill: currentColor;
+  font-size: inherit;
+  line-height: 1;
+  -webkit-transition: fill .2s cubic-bezier(.4,0,.2,1) 0ms;
+  transition: fill .2s cubic-bezier(.4,0,.2,1) 0ms;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  flex-shrink: 0;
+}
+.icon__cnt {
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  //fill: inherit;
+  pointer-events: none;
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  -ms-transform: translate(.5px,-.3px);
+}
+
+
+//Icon
+.icon-lg,
+.icon-md,
+.icon-sm {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  font-family: "Font Awesome 5 Free";
+  font-style: normal;
+  //font-weight: 400;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: bottom;
+}
+
+.icon-lg,
+.icon-md,
+.icon-sm {
+  color: #42526e;
+}
+
+.icon-sm {
+  height: 20px;
+  font-size: 16px;
+  line-height: 20px;
+  width: 20px;
+}
+
+//Divider
+.divider {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  grid-gap: 10px;
+  color: #b6b3b3;
+}
+.divider::before,
+.divider::after{
+  content: '';
+  border: 1px dashed #efefef;
+  align-self: center;
+}
+
+.badge {
+  width: max-content;
+}
+
+.elip {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 70%;
+}
+
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+  background: rgba(0,0,0,.15);
+  display: block;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+
+button:hover,
+button:active,
+button:focus,button:enabled{
+  border: none;
+  box-shadow: none;
+}
+
+.modal-content {
+  background: transparent;
+  border-radius: 3px;
+  border: none;
+}
+
+.modal-body{
+  padding: 0;
+}

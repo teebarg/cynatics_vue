@@ -1,0 +1,38 @@
+.NewsCard__wrapper {
+  .el-card__body {
+    padding: 10px;
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+  }
+
+  .time {
+    font-size: 13px;
+    color: #999;
+  }
+
+  .bottom {
+    margin-top: 13px;
+    line-height: 12px;
+  }
+
+  .button {
+    padding: 0;
+    float: right;
+  }
+
+  .image {
+    width: 100%;
+    display: block;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    h6 {
+      flex: 1;
+    }
+    .time {
+      margin-top: auto;
+    }
+  }
+}
