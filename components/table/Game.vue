@@ -2,7 +2,6 @@
   <div>
     <el-table
       :data="games"
-      :row-class-name="tableRowClassName"
     >
       <el-table-column type="expand">
         <template slot-scope="props">
@@ -19,16 +18,16 @@
       <el-table-column prop="market.name" label="Market" />
       <el-table-column label="Odds">
         <template slot-scope="scope">
-          <el-tag size="medium" @click="manageTag(scope.row)">
+          <el-button size="small" type="secondary" @click="manageTag(scope.row)">
             Odds
-          </el-tag>
+          </el-button>
         </template>
       </el-table-column>
       <el-table-column label="Bookings">
         <template slot-scope="scope">
-          <el-tag size="medium" @click="manageBooking(scope.row)">
+          <el-button size="small" type="secondary" @click="manageBooking(scope.row)">
             Bookings
-          </el-tag>
+          </el-button>
         </template>
       </el-table-column>
       <el-table-column label="Settled">
@@ -65,14 +64,6 @@ export default {
     },
     manageBooking(game) {
       this.showModal({componentName: 'GameBooking', title: 'Manage Game Booking', componentData: game})
-    },
-    tableRowClassName({ row }) {
-      if (row.game_status.status === STATUS.LOSS) {
-        return "warning-row";
-      } else if (row.game_status.status === STATUS.WON) {
-        return "success-row";
-      }
-      return "";
     }
   }
 };

@@ -15,25 +15,11 @@
   </App>
 </template>
 <script>
-export default {
-  data() {
-    return {
-      beaf: {
-        title: "A title",
-        default: "A Default title"
-      }
-    };
-  },
-  methods: {
-    test() {
-      alert(5);
-    }
-  }
-};
+export default {};
 </script>
 <style lang="scss" scoped>
 .container {
-  background: #eeeef0;
+  background: var(--background-secondary);
 }
 .content {
   display: grid;

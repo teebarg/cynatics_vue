@@ -135,7 +135,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 .main__cont {
   flex-direction: column;
 }

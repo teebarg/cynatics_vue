@@ -18,7 +18,7 @@
             Free Picks
           </template>
           <template v-slot:body>
-            <GameTable />
+            <GameTable :game="{}"/>
           </template>
         </Segment>
         <Segment>
@@ -60,7 +60,25 @@
 </template>
 
 <script>
-export default {};
+export default {
+  head() {
+      return {
+        title: 'Cynatics|Home of Sport Betting',
+        meta: [
+          {
+            hid: 'description',
+            name: 'description',
+            content: 'My custom description'
+          },
+          {
+            hid: 'oi:image',
+            name: 'oi:image',
+            content: 'Link to Image'
+          }
+        ]
+      }
+    }
+};
 </script>
 
 <style scoped>

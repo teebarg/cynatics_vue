@@ -1,13 +1,13 @@
 <template>
   <LayoutAdmin>
     <template v-slot:filter>
-      <FormFilter state="game" action="getGames" />
+      <FormFilter :name="false" state="game" action="getGames" />
     </template>
     <template v-slot:head>
       <div class="top">
         <h2>Games</h2>
         <div>
-          <el-button size="mini" type="primary" @click="showModal({componentName: 'GameCreate', title: 'Upload Game'})">
+          <el-button size="mini" type="secondary" @click="showModal({componentName: 'GameCreate', title: 'Upload Game'})">
             Create Game
           </el-button>
         </div>

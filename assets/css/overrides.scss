@@ -9,3 +9,202 @@
 .el-form--label-top .el-form-item__label {
   padding: 0;
 }
+
+.el-input__inner {
+  background-color: var(--background-primary);
+  color: var(--color);
+  border-color: var(--divider-primary);
+}
+
+.el-table,
+.el-table__expanded-cell {
+  background-color: inherit;
+}
+
+.el-table th,
+.el-table tr {
+  background-color: transparent;
+}
+
+.el-table tr {
+  color: var(--text-primary);
+}
+
+.el-table th {
+  color: var(--text-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.el-table--enable-row-hover .el-table__body tr:hover > td {
+  background-color: var(--background-intermediate);
+}
+
+.el-table tr:last-child .el-table td,
+.el-table tr:last-child .el-table th.is-leaf {
+  border-bottom: none;
+}
+
+.el-table td,
+.el-table th.is-leaf {
+  border-bottom: 1px solid var(--divider-primary);
+}
+
+.el-table--border::after,
+.el-table--group::after,
+.el-table::before {
+  background-color: unset;
+}
+
+// .el-table th:hover, .el-table .tr:hover, .el-table .el-table__row:hover, .el-table tr td:hover {
+//   background-color: green !important;
+// }
+
+// .el-table__body-wrapper:hover {
+//   background-color: red;
+// }
+
+button:enabled.el-button--secondary {
+  border: 1px solid var(--btn-border-secondary);
+  box-shadow: none;
+}
+
+.el-button {
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    border-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-family: "Open Sans";
+  font-weight: 600;
+}
+
+.el-button--primary {
+  color: var(--color-white);
+  background-color: var(--btn-primary);
+  border-color: var(--btn-primary);
+}
+
+.el-button--primary.is-active,
+.el-button--primary:focus,
+.el-button--primary:active,
+.el-button--primary:hover {
+  background: var(--color-coral-700);
+  // border-color: darken($color: #ef5466, $amount: 10);
+  // color: #ffffff;
+}
+
+.el-button--secondary {
+  color: var(--btn-secondary);
+  background-color: var(--btn-background-secondary);
+  border-color: var(--btn-border-secondary);
+}
+
+.el-button--secondary.is-active,
+.el-button--secondary:focus,
+.el-button--secondary:active {
+  color: var(--btn-secondary);
+  background-color: var(--btn-background-secondary);
+  border-color: var(--btn-border-secondary);
+}
+
+button:enabled.el-button--secondary:hover {
+  color: var(--btn-secondary);
+  background-color: var(--btn-background-secondary);
+  border-color: var(--color-white);
+}
+
+.el-button--success {
+  color: var(--color-white);
+  background-color: var(--btn-success);
+  border-color: var(--btn-success);
+}
+
+.el-button--success.is-active,
+.el-button--success:focus,
+.el-button--success:active,
+.el-button--success:hover {
+  background: var(--btn-success);
+  // border-color: darken($color: #ef5466, $amount: 10);
+  // color: #ffffff;
+}
+
+// .el-button--secondary.is-active,
+// .el-button--secondary:active,
+// .el-button--secondary:hover {
+//   background: darken($color: #ef5466, $amount: 10);
+//   border-color: darken($color: #ef5466, $amount: 10);
+//   color: #ffffff;
+// }
+
+.el-pager li.active {
+  color: var(--color-coral-700);
+}
+
+.el-pager li:hover {
+  color: var(--color-coral-700);
+}
+
+.el-pager li {
+  background: transparent;
+}
+
+.el-pagination .btn-next,
+.el-pagination .btn-prev {
+  background: center center no-repeat transparent;
+}
+
+.el-pagination button:disabled {
+  background-color: transparent;
+}
+
+.el-dialog {
+  background: var(--background-primary);
+}
+
+.el-dialog__title {
+  color: inherit;
+}
+
+.el-input__inner:focus,
+.el-select .el-input.is-focus .el-input__inner,
+.el-select .el-input__inner:focus {
+  border-color: var(--color-accent);
+}
+
+//Card
+.el-card {
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+}
+
+//Dropdown
+.el-dropdown-menu {
+  background-color: var(--background-primary);
+  border: 1px solid var(--btn-background-secondary);
+}
+
+.el-dropdown-menu__item:focus,
+.el-dropdown-menu__item:not(.is-disabled):hover,
+.el-dropdown-menu__item a:hover {
+  background-color: var(--btn-background-secondary);
+  // color: #66b1ff;
+  color: var(--text-primary);
+}
+
+.el-dropdown-menu__item a {
+  // background-color: #ecf5ff;
+  color: var(--text-secondary);
+}
+
+.el-popper[x-placement^=bottom] .popper__arrow {
+  border-bottom-color: var(--background-primary);
+}
+
+.el-progress-bar__outer {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.el-progress__text {
+  color: unset;
+}

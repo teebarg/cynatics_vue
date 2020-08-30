@@ -11,7 +11,12 @@
         <p>Today</p>
         <p>20:45</p>
         <p>Over 2.5</p>
-        <p class="PreviewListItem__meta-link">View Predictions</p>
+        <el-button
+          size="small"
+          type="secondary"
+        >
+          View Predictions
+        </el-button>
       </div>
       <div class="team">
         <div>

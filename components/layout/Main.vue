@@ -13,21 +13,7 @@
   </App>
 </template>
 <script>
-export default {
-  data() {
-    return {
-      beaf: {
-        title: "A title",
-        default: "A Default title"
-      }
-    };
-  },
-  methods: {
-    test() {
-      alert(5);
-    }
-  }
-};
+export default {};
 </script>
 <style lang="scss" scoped>
 .content {
@@ -35,6 +21,7 @@ export default {
   grid-template-columns: 5fr 3fr;
   gap: 20px;
   padding: 15px;
-  background: #eeeef0;
+  background: var(--background-secondary);
+  // background: var(--background-primary);
 }
 </style>

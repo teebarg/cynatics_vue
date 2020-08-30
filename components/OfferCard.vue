@@ -11,12 +11,10 @@
       <div class="content">
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum autem
-          ea repellat excepturi. Eligendi illum non doloremque cum cupiditate
-          voluptatum, fugit dolorem tenetur accusantium architecto, quod earum
-          ipsum sed consequuntur.
+          ea repellat excepturi. Eligendi illum non doloremque cum cupiditate.
         </p>
       </div>
-      <el-button type="primary">Primary</el-button>
+      <el-button type="primary" size="small">Primary</el-button>
     </el-card>
   </div>
 </template>

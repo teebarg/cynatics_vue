@@ -14,8 +14,8 @@
       </div>
     </div>
     <div class="body">
-      <slot name="body" >
-          Please Provide Body
+      <slot name="body">
+        Please Provide Body
       </slot>
     </div>
   </div>
@@ -44,14 +44,23 @@ export default {
 
 .header {
   display: flex;
-  justify-content: center;
+  // justify-content: center;
   align-items: center;
-  padding: 0;
-  margin: 0;
-  background-color: #3f3f3f;
-  border: 0.07143rem solid #2f2f2f;
-  -webkit-box-shadow: 0 0 3px #999;
-  box-shadow: 0 0 3px #999;
+  // padding: 0;
+  // margin: 0;
+  background-color: var(--btn-background-secondary);
+  border: 1px solid var(--btn-border-secondary);
+  color: var(--btn-secondary);
+  // border: 0.07143rem solid #2f2f2f;
+  // -webkit-box-shadow: 0 0 3px #999;
+  // box-shadow: 0 0 3px #999;
+  // border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    border-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-family: "Open Sans";
+  font-weight: 600;
 }
 
 @media (min-width: 480px) {
@@ -64,14 +73,14 @@ export default {
 .header__title {
   flex: 1;
   padding: 0.35714rem 0.35714rem 0.35714rem 0.71429rem;
-  font-size: 1rem;
-  line-height: 1.14286rem;
-  color: #fff;
-  text-align: left;
+  // font-size: 1rem;
+  // line-height: 1.14286rem;
+  // color: #fff;
+  // text-align: left;
   text-transform: uppercase;
-  font-weight: 700;
+  // font-weight: 700;
   letter-spacing: 0.05em;
-  margin: 0;
+  // margin: 0;
 }
 
 .header__icon {
@@ -97,21 +106,4 @@ export default {
   background-position: center center;
   background-repeat: no-repeat;
 }
-
-// .content {
-//   display: grid;
-//   grid-template-columns: 5fr 2fr;
-//   gap: 20px;
-//   padding: 15px;
-//   background: #eeeef0;
-// }
-// .el-header {
-//   background-color: #b3c0d1;
-//   color: #333;
-//   line-height: 60px;
-// }
-
-// .el-aside {
-//   color: #333;
-// }
 </style>

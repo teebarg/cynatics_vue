@@ -1,8 +1,7 @@
 <template>
   <div class="app_container">
     <header>
-      <slot name="header" v-bind:beaf='beaf'>
-        <!-- {{beaf.default}} -->
+      <slot name="header">
         <Header />
       </slot>
     </header>
@@ -19,26 +18,13 @@
   </div>
 </template>
 <script>
-export default {
-  data(){
-    return {
-      beaf: {
-        title: 'A title',
-        default: 'A Default title'
-      }
-    }
-  },
-  methods: {
-    test() {
-      alert(5);
-    }
-  }
-};
+export default {};
 </script>
 <style lang="scss" scoped>
 .app_container {
   display: grid;
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
+  background-color: var(--sidebar-background-color)
 }
 </style>

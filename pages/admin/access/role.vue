@@ -7,7 +7,7 @@
       <div class="top">
         <h2>Roles</h2>
         <div>
-          <el-button size="mini" type="primary" @click="onCreate">
+          <el-button size="mini" type="secondary" @click="onCreate">
             Create Role
           </el-button>
         </div>

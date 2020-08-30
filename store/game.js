@@ -8,14 +8,15 @@ export const state = () => ({
   pagination: {
     current_page: 1,
     per_page: 20,
-    total: 1
+    total: 1,
+    next_page_url: null
   }
 })
 
 export const mutations = {
-  [GAME.GAMES] (state, { data, current_page, per_page, total }) {
+  [GAME.GAMES] (state, { data, current_page, per_page, total, next_page_url }) {
     state.games = data
-    state.pagination = { current_page, per_page, total }
+    state.pagination = { current_page, per_page, total, next_page_url }
   },
   [GAME.CREATE_GAME] (state, game) {
     state.games = state.games.concat(game)

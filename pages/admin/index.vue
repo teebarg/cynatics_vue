@@ -4,7 +4,8 @@
       <el-row type="flex" :gutter="20">
         <el-col :xs="24" :sm="12" :md="6">
           <WidgetStat
-            color="red"
+            color="#e55353"
+            border="#d82121"
             header="988.823"
             text="Members online"
             :percentage="75"
@@ -12,7 +13,8 @@
         </el-col>
         <el-col :xs="24" :sm="12" :md="6">
           <WidgetStat
-            color="blue"
+            color="#2eb85c"
+            border="#218543"
             header="90.823"
             text="Members online"
             :percentage="75"
@@ -20,7 +22,8 @@
         </el-col>
         <el-col :xs="24" :sm="12" :md="6">
           <WidgetStat
-            color="yellow"
+            color="#39f"
+            border="#0079f2"
             header="29.823"
             text="Members online"
             :percentage="45"
@@ -28,7 +31,8 @@
         </el-col>
         <el-col :xs="24" :sm="12" :md="6">
           <WidgetStat
-            color="green"
+            color="#f9b115"
+            border="#c98b05"
             header="19.823"
             text="Members online"
             :percentage="20"

@@ -17,6 +17,8 @@ export const STATUS = Object.freeze({
 
 export const ApiEndPoint = Object.freeze({
   AUTH: "/login",
+  LOGOUT: "/logout",
+  REGISTER: "/register",
   COUNTRY: "/country",
   CLUB: "/club",
   GAME: "/game",
@@ -76,10 +78,17 @@ export const Rules = Object.freeze({
     }
   ],
   PASSWORD: (required = true, trigger = "blur") => [
-    {required: required, message: "Please input the password", trigger: "blur" },
+    {
+      required: required,
+      message: "Please input the password",
+      trigger: "blur"
+    },
     { min: 8, message: "Minimum of 8", trigger: "change" }
   ],
-  PASSWORD_CONFIRMATION:(func) => [{ validator: func, trigger: "blur" }]
+  PASSWORD_CONFIRMATION: func => [
+    { validator: func, trigger: "blur" },
+    { required: true }
+  ]
 });
 
 export const Route = Object.freeze({

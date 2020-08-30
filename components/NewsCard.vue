@@ -36,3 +36,9 @@ export default {
   }
 };
 </script>
+<style lang="scss" scoped>
+.el-card {
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+}
+</style>

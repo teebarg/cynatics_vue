@@ -1,5 +1,5 @@
 <template>
-  <el-table :data="users">
+  <el-table :data="users" style="width: 100%;" height="100%">
     <el-table-column
       type="index"
       width="50"
@@ -10,16 +10,16 @@
     <el-table-column prop="created_at" label="Date Registered" />
     <el-table-column label="Roles">
       <template slot-scope="scope">
-        <el-tag size="medium" @click="$emit('role', scope.row)">
-          role
-        </el-tag>
+        <el-button size="small" type="secondary" @click="$emit('role', scope.row)">
+            Roles
+          </el-button>
       </template>
     </el-table-column>
     <el-table-column label="Permissions">
       <template slot-scope="scope">
-        <el-tag size="medium" @click="$emit('permission', scope.row)">
-          perm
-        </el-tag>
+        <el-button size="small" type="secondary" @click="$emit('permission', scope.row)">
+            Permissions
+        </el-button>
       </template>
     </el-table-column>
     <el-table-column label="Action">

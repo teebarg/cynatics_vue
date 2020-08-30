@@ -7,8 +7,7 @@
       <div class="sidebar-content">
         <div class="sidebar-brand">
           <a href="#">Dark Mode</a>
-            <el-switch v-model="mode" @change="onChange">
-            </el-switch>
+          <el-switch v-model="mode" @change="onChange"> </el-switch>
           <div id="close-sidebar">
             <i class="fas fa-times"></i>
           </div>
@@ -17,7 +16,7 @@
           <div class="user-pic">
             <img
               class="img-responsive img-rounded"
-              src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+              src="/holder.png"
               alt="User picture"
             />
           </div>
@@ -40,80 +39,21 @@
             <li class="header-menu">
               <span>General</span>
             </li>
-            <li class="sidebar-dropdown" v-for="(item, key) in routes" :key="key">
+            <li
+              class="sidebar-dropdown"
+              v-for="(item, key) in routes"
+              :key="key"
+            >
               <a href="#">
                 <i :class="[item.fa]"></i>
-                <span>{{item.name}}</span>
+                <span>{{ item.name }}</span>
               </a>
               <div class="sidebar-submenu">
                 <ul>
                   <li v-for="(child, key) in item.children" :key="key">
-                    <nuxt-link :to="child.to">
-                      {{child.name}}
+                    <nuxt-link :to="child.to" class="sub">
+                      {{ child.name }}
                     </nuxt-link>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="sidebar-dropdown">
-              <a href="#">
-                <i class="far fa-gem"></i>
-                <span>Components</span>
-              </a>
-              <div class="sidebar-submenu">
-                <ul>
-                  <li>
-                    <a href="#">General</a>
-                  </li>
-                  <li>
-                    <a href="#">Panels</a>
-                  </li>
-                  <li>
-                    <a href="#">Tables</a>
-                  </li>
-                  <li>
-                    <a href="#">Icons</a>
-                  </li>
-                  <li>
-                    <a href="#">Forms</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="sidebar-dropdown">
-              <a href="#">
-                <i class="fa fa-chart-line"></i>
-                <span>Charts</span>
-              </a>
-              <div class="sidebar-submenu">
-                <ul>
-                  <li>
-                    <a href="#">Pie chart</a>
-                  </li>
-                  <li>
-                    <a href="#">Line chart</a>
-                  </li>
-                  <li>
-                    <a href="#">Bar chart</a>
-                  </li>
-                  <li>
-                    <a href="#">Histogram</a>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li class="sidebar-dropdown">
-              <a href="#">
-                <i class="fa fa-globe"></i>
-                <span>Maps</span>
-              </a>
-              <div class="sidebar-submenu">
-                <ul>
-                  <li>
-                    <a href="#">Google maps</a>
-                  </li>
-                  <li>
-                    <a href="#">Open street map</a>
                   </li>
                 </ul>
               </div>
@@ -125,19 +65,6 @@
               <a href="#">
                 <i class="fa fa-book"></i>
                 <span>Documentation</span>
-                <span class="badge badge-pill badge-primary">Beta</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-calendar"></i>
-                <span>Calendar</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="fa fa-folder"></i>
-                <span>Examples</span>
               </a>
             </li>
           </ul>
@@ -154,11 +81,7 @@
           <i class="fa fa-envelope"></i>
           <span class="badge badge-pill badge-success notification">7</span>
         </a>
-        <a href="#">
-          <i class="fa fa-cog"></i>
-          <span class="badge-sonar"></span>
-        </a>
-        <a href="#">
+        <a href="#" @click="logout">
           <i class="fa fa-power-off"></i>
         </a>
       </div>
@@ -183,7 +106,9 @@ import { Route } from '~/services/constants'
 export default {
   middleware: ["auth", "load-resource"],
   components: { Header },
-  data: () => ({ routes: Route, mode: true }),
+  data() {
+    return { routes: Route, mode: this.$colorMode.preference === 'dark' }
+  },
   mounted() {
     new Dropdown();
   },
@@ -196,6 +121,12 @@ export default {
     onChange(e) {
       console.log(e)
       this.$colorMode.preference = e ? 'dark' : 'light'
+    },
+    async logout(e) {
+      try {
+          await this.$auth.logout();
+          this.$router.push('/');
+        } catch (e) {}
     }
   }
 };
@@ -209,12 +140,13 @@ export default {
 .main__cont section {
   height: calc(100vh - 60px);
 }
-.nuxt-link-exact-active.nuxt-link-active {
-  background: #00000050;
-  color: #ffffff;
-}
+
 .el-menu-item a {
   display: block;
   padding: 0 40px;
 }
+
+/* .page-content {
+  background-color: var(--background-secondary);
+} */
 </style>

@@ -1,8 +1,8 @@
 <template>
-  <div class="Stat__wrapper">
+  <div class="Stat__wrapper" :style="{backgroundColor: color, borderColor: border}">
     <h2>{{ header }}</h2>
     <div>{{ text }}</div>
-    <el-progress :percentage="percentage" :color="color"></el-progress>
+    <el-progress :percentage="percentage" color="#FFFFFF"></el-progress>
   </div>
 </template>
 <script>
@@ -11,6 +11,7 @@ export default {
     header: String,
     text: String,
     color: String,
+    border: String,
     percentage: Number
   },
 };
@@ -18,9 +19,8 @@ export default {
 <style lang="scss" scoped>
 .Stat__wrapper {
   padding: 1.25rem;
-  // background: #ffffff;
   border-radius: 5px;
-  color: var(--color);
+  color: var(--color-white);
   border: 1px solid #d8dbe0;
 }
 .Stat__wrapper .el-progress {

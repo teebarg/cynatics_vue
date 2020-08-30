@@ -9,6 +9,7 @@ export default function({ $axios, app, redirect, $auth }) {
     // errorHandler.message = "";
 
     // console.log(error.response);
+    // return;
 
     // app.$offLoader();
     // app.$showSnackbar(
@@ -16,7 +17,7 @@ export default function({ $axios, app, redirect, $auth }) {
     //   "error"
     // );
 
-    if (error.response.status === 401) {
+    if (error && error.response && error.response.status === 401) {
       // if ($auth.loggedIn) {
       //   $auth.logout();
       // }

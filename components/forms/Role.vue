@@ -12,10 +12,10 @@
       </el-form-item>
     </div>
     <el-form-item>
-      <el-button type="primary" @click="submitForm('roleForm')">
+      <el-button size="small" type="primary" @click="submitForm('roleForm')">
         {{ mode === "edit" ? "Update" : "Create" }}
       </el-button>
-      <el-button @click="resetForm('roleForm')">
+      <el-button type="secondary" size="small" @click="resetForm('roleForm')">
         Reset
       </el-button>
     </el-form-item>

@@ -1,15 +1,16 @@
 <template>
   <el-table :data="roles" style="width: 100%;" height="100%">
-    <el-table-column
-      type="index"
-      width="50">
-    </el-table-column>
+    <el-table-column type="index" width="50"> </el-table-column>
     <el-table-column prop="name" label="Name" />
     <el-table-column label="Permissions">
       <template slot-scope="scope">
-        <el-tag size="medium" @click="$emit('permission', scope.row)">
-          perm
-        </el-tag>
+        <el-button
+          size="small"
+          type="secondary"
+          @click="$emit('permission', scope.row)"
+        >
+          Permissions
+        </el-button>
       </template>
     </el-table-column>
     <el-table-column label="Action">

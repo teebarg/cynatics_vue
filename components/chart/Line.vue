@@ -20,7 +20,7 @@ const dataSource = {
     setadaptiveymin: "1",
     xaxisname: "Days",
     yaxisname: "Traffic",
-    theme: "fusion"
+    theme: "gammel"
   },
   data: [
     {

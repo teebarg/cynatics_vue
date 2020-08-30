@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-button
-      type="primary"
+      type="success"
       size="mini"
       icon="el-icon-edit"
       @click.native.prevent="$emit('edit', true)"
@@ -17,7 +17,7 @@
       v-if="$can(deletePermission)"
     >
       <el-button
-        type="danger"
+        type="warning"
         size="mini"
         icon="el-icon-delete"
         slot="reference"

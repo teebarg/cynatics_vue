@@ -26,7 +26,6 @@ export const mutations = {
 export const actions = {
   async [BOOKMAKER.BOOKMAKERS] ({ commit }) {
     const { data } = await this.$axios.$get(ApiEndPoint.BOOKMAKER)
-    console.log(data)
     commit(BOOKMAKER.BOOKMAKERS, data.data)
   },
   async [BOOKMAKER.CREATE_BOOKMAKER] ({ commit }, payload) {

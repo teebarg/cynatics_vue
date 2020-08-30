@@ -1,11 +1,21 @@
 <template>
   <div class="filter__wrapper" style="margin-bottom: 20px">
-    <div>
-      <el-input placeholder="Enter Name" v-model="filterForm.name" clearable>
+    <div v-if="name">
+      <el-input
+        size="small"
+        placeholder="Enter Name"
+        v-model="filterForm.name"
+        clearable
+      >
       </el-input>
     </div>
     <div>
-      <el-select v-model="filterForm.status" clearable placeholder="Status">
+      <el-select
+        v-model="filterForm.status"
+        clearable
+        placeholder="Status"
+        size="small"
+      >
         <el-option
           v-for="item in options"
           :key="item.value"
@@ -19,6 +29,7 @@
       <el-date-picker
         v-model="filterForm.from"
         type="date"
+        size="small"
         placeholder="Start Date"
         format="MM/dd/yyyy"
         value-format="MM-dd-yyyy"
@@ -26,10 +37,11 @@
       >
       </el-date-picker>
     </div>
-    <div v-if="date" >
+    <div v-if="date">
       <el-date-picker
         v-model="filterForm.to"
         type="date"
+        size="small"
         placeholder="End Date"
         format="MM/dd/yyyy"
         value-format="MM-dd-yyyy"
@@ -40,21 +52,30 @@
       <slot name="extra" v-bind:filterForm="filterForm"></slot>
     </template>
     <div>
-      <el-button type="primary" icon="el-icon-search" @click="handleSearch" :loading="isLoading"
+      <el-button
+        size="small"
+        type="primary"
+        icon="el-icon-search"
+        @click="handleSearch"
+        :loading="isLoading"
         >Search</el-button
       >
     </div>
   </div>
 </template>
 <script>
-import { Utility } from '../../services/utility';
+import { Utility } from "../../services/utility";
 export default {
   props: {
     state: {
       type: String
     },
     action: String,
-    date: true
+    date: {
+      type: Boolean,
+      default: true
+    },
+    name: true
   },
   data() {
     return {
@@ -72,7 +93,7 @@ export default {
         {
           value: 2,
           label: "InActive"
-        },
+        }
       ],
       value: ""
     };
@@ -83,7 +104,10 @@ export default {
     },
     async handleSearch() {
       this.isLoading = true;
-      await this.$store.dispatch(`${this.state}/${this.action}`, Utility.removeBlankObjectFields(this.filterForm));
+      await this.$store.dispatch(
+        `${this.state}/${this.action}`,
+        Utility.removeBlankObjectFields(this.filterForm)
+      );
       this.isLoading = false;
     }
   }
