@@ -11,7 +11,7 @@
           <FormLogin />
           <div class="divider">Or</div>
           <div class="other">
-            <nuxt-link to="/auth/password-reset">
+            <nuxt-link to="/">
               Can't log in?
             </nuxt-link>
             <nuxt-link to="/auth/register">
