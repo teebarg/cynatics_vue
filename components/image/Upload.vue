@@ -59,6 +59,10 @@ export default {
       })
     }
   },
+  mounted(){
+    console.log(process.env)
+    console.log(process.env.ASSET_URL)
+  },
   watch: {
     imageData(newValue, oldValue) {
       this.asset = process.env.ASSET_URL + newValue.image;

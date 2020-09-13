@@ -1,6 +1,6 @@
 <template>
   <div class="block" style="margin-bottom: 10px">
-    <el-carousel direction="vertical" v-if="banners.length > 1">
+    <el-carousel direction="vertical" v-if="banners.length">
       <el-carousel-item v-for="(item, key) in banners[0].adverts" :key="key">
         <nuxt-link
           class="home-banner home-banner-1 h-b-image"
