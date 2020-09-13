@@ -35,37 +35,45 @@
           </el-dropdown-menu>
         </el-dropdown>
       </li>
-      <li v-if="$auth.loggedIn && $can('edit')">
-        <nuxt-link to="/admin">
-          Admin
-        </nuxt-link>
-      </li>
-      <li v-if="$auth.loggedIn">
-        <el-dropdown>
-          <div class="profile">
-            <el-avatar :size="35" src="https://empty" @error="errorHandler">
-              <img src="/holder.png" />
-            </el-avatar>
-            <p>Adeniyi</p>
+      <client-only>
+        <li v-if="$auth.loggedIn && $can('edit')">
+          <nuxt-link to="/admin">
+            Admin
+          </nuxt-link>
+        </li>
+      </client-only>
+      <client-only>
+        <li v-if="$auth.loggedIn">
+          <el-dropdown>
+            <div class="profile">
+              <el-avatar :size="35" src="https://empty" @error="errorHandler">
+                <img src="/holder.png" />
+              </el-avatar>
+              <p>Adeniyi</p>
+            </div>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item>Action 1</el-dropdown-item>
+              <el-dropdown-item>
+                <span @click="logout">Logout</span>
+              </el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+        </li>
+        <li v-else>
+          <div class="auth">
+            <el-button @click="goto('login')" size="small" type="primary" round
+              >Login</el-button
+            >
+            <el-button
+              @click="goto('register')"
+              size="small"
+              type="success"
+              round
+              >Register</el-button
+            >
           </div>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>Action 1</el-dropdown-item>
-            <el-dropdown-item>
-              <span @click="logout">Logout</span>
-            </el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-      </li>
-      <li v-else>
-        <div class="auth">
-          <el-button @click="goto('login')" size="small" type="primary" round
-            >Login</el-button
-          >
-          <el-button @click="goto('register')" size="small" type="success" round
-            >Register</el-button
-          >
-        </div>
-      </li>
+        </li>
+      </client-only>
       <li>
         <div class="theme">
           <span>Dark Mode</span
@@ -198,7 +206,8 @@ a {
 
 @media (min-width: 769px) {
   .header,
-  .main-nav, .main-nav.show {
+  .main-nav,
+  .main-nav.show {
     display: flex;
     position: relative;
     width: auto;
