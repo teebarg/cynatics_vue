@@ -36,9 +36,12 @@
 export default {
   methods: {
     cssVars(e) {
-      return {
-        "--bg-img": `url(${process.env.ASSET_URL + e.image})`
-      };
+      if (e) {
+        return {
+          "--bg-img": `url(${process.env.ASSET_URL + e.image})`
+        };
+      }
+      return {};
     }
   },
   props: {
@@ -108,5 +111,4 @@ export default {
 .home-banner-1 .red-arrow-icon {
   padding-left: 5px;
 }
-
 </style>
