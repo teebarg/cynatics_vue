@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  middleware: ["load-resource"],
+  middleware: ["customer-resource"],
   computed: {
     user() {
       return this.$auth.user;

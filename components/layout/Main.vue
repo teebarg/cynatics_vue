@@ -22,6 +22,11 @@ export default {};
   gap: 20px;
   padding: 15px;
   background: var(--background-secondary);
-  // background: var(--background-primary);
+}
+
+@media (max-width: 899px) {
+  .content {
+    grid-template-columns: auto;
+  }
 }
 </style>

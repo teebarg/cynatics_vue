@@ -145,6 +145,18 @@ export const CARD = {
   UPDATE_CARD: 'update_card',
 };
 
-export const TASK = {
-  ADD_TASK: 'add_task',
-};
+export const ADSLOT = {
+  ADSLOTS: 'getAdSlots',
+  UPDATE_ADSLOT: 'updateAdSlot',
+  DELETE_ADSLOT: 'deleteAdSlot',
+  MANAGE_ADVERT: 'manageAdvert',
+  ADD_ADVERT: 'addAdvert',
+  DELETE_ADVERT: 'deleteAdvert',
+}
+
+export const ADVERT = {
+  ADVERTS: 'getAdverts',
+  CREATE_ADVERT: 'createAdvert',
+  UPDATE_ADVERT: 'updateAdvert',
+  DELETE_ADVERT: 'deleteAdvert'
+}

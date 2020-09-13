@@ -11,25 +11,10 @@
 </template>
 <script>
 export default {
-  data() {
-    return {
-      beaf: {
-        title: "A title",
-        default: "A Default title"
-      }
-    };
-  },
-  methods: {
-    test() {
-      alert(5);
-    }
-  },
   props: {
     data: {
       type: Array,
-      default() {
-        return [];
-      }
+      default: () => []
     }
   }
 };
@@ -47,6 +32,13 @@ export default {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 5px 10px;
+  }
+
+  @media (max-width: 599px) {
+    .content {
+      grid-template-columns: auto;
+      gap: 10px;
+    }
   }
 }
 </style>

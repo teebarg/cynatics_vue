@@ -2,3 +2,20 @@
 @import "newscard";
 @import "offercard";
 @import "newscovercard";
+
+.feature-game__container,
+.feature-news__container {
+  display: grid;
+  gap: 5px;
+}
+
+.feature-game__container {
+  grid-template-columns: repeat(2, minmax(250px, 1fr));
+  @include for-tablet-portrait-up {
+    grid-template-columns: auto;
+  }
+}
+
+.feature-news__container {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}

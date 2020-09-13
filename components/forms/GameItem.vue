@@ -1,16 +1,16 @@
 <template>
   <el-form
-    ref="gameItemEditForm"
+    ref="form"
     class="form"
-    :model="gameItemEditForm"
+    :model="form"
     :rules="rules"
     label-width="120px"
     size="small"
   >
     <div class="form-group">
-      <el-form-item label="Game Date">
+      <el-form-item label="Game Date" prop="match_date">
         <el-date-picker
-          v-model="gameItemEditForm.match_date"
+          v-model="form.match_date"
           type="date"
           placeholder="Match Date"
           value-format="yyyy-MM-dd"
@@ -18,13 +18,13 @@
         />
       </el-form-item>
       <el-form-item label="Result" v-if="mode === 'edit'">
-        <el-input v-model="gameItemEditForm.result" />
+        <el-input v-model="form.result" />
       </el-form-item>
     </div>
     <div class="form-group">
-      <el-form-item label="Competition">
+      <el-form-item label="Competition" prop="competition_id">
         <el-select
-          v-model="gameItemEditForm.competition_id"
+          v-model="form.competition_id"
           filterable
           remote
           placeholder="Please enter a keyword"
@@ -42,7 +42,7 @@
       </el-form-item>
       <el-form-item label="Odd" prop="odd_id">
         <el-select
-          v-model="gameItemEditForm.odd_id"
+          v-model="form.odd_id"
           filterable
           remote
           placeholder="Please enter a keyword"
@@ -60,9 +60,9 @@
       </el-form-item>
     </div>
     <div class="form-group">
-      <el-form-item label="Home">
+      <el-form-item label="Home" prop="home_id">
         <el-select
-          v-model="gameItemEditForm.home_id"
+          v-model="form.home_id"
           filterable
           remote
           placeholder="Please enter a keyword"
@@ -78,9 +78,9 @@
           </el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="Away">
+      <el-form-item label="Away" prop="away_id">
         <el-select
-          v-model="gameItemEditForm.away_id"
+          v-model="form.away_id"
           filterable
           remote
           placeholder="Please enter a keyword"
@@ -97,8 +97,17 @@
         </el-select>
       </el-form-item>
     </div>
+    <div class="form-group">
+      <el-form-item label="Game Odd">
+        <el-input-number
+          v-model="form.bookie_odd"
+          :precision="2"
+          :step="0.1"
+        ></el-input-number>
+      </el-form-item>
+    </div>
     <el-form-item label="Status" v-if="mode === 'edit'">
-      <el-radio-group v-model="gameItemEditForm.game_status_id">
+      <el-radio-group v-model="form.game_status_id">
         <el-radio
           v-for="(gs, key) in game_statuses"
           :key="key"
@@ -111,7 +120,7 @@
     </el-form-item>
     <el-form-item>
       <el-button type="danger" @click="onSubmit">{{
-        mode === "add" ? "Add" : "Update"
+        mode === "edit" ? "Update" : "Add"
       }}</el-button>
     </el-form-item>
   </el-form>
@@ -123,7 +132,7 @@ import { Rules } from "~/services/constants";
 
 export default {
   async fetch() {
-    await this.getClubs();
+    await this.getClubs({ limit: 100000 });
     await this.getCompetitions();
   },
   props: {
@@ -135,7 +144,7 @@ export default {
   },
   data() {
     return {
-      gameItemEditForm: {
+      form: {
         match_date: this.gameItem.match_date,
         result: this.gameItem.result,
         home_id: this.gameItem.home_id,
@@ -144,16 +153,17 @@ export default {
         odd_id: this.gameItem.odd_id,
         game_status_id: this.gameItem.game_status_id,
         market_id: this.gameItem.market_id,
-        game_id: this.gameItem.game_id
+        game_id: this.gameItem.game_id,
+        bookie_odd: this.gameItem.bookie_odd || 0
       },
       loading: false,
       rules: {
         match_date: [Rules.SELECT()],
         result: [Rules.NAME("Result")],
-        competition: [Rules.NAME("Competition")],
-        home: [Rules.NAME("Home")],
-        away: [Rules.NAME("Away")],
-        odd: [Rules.NAME("Odd")]
+        competition_id: [Rules.NAME("Competition")],
+        home_id: [Rules.NAME("Home")],
+        away_id: [Rules.NAME("Away")],
+        odd_id: [Rules.NAME("Odd")]
       }
     };
   },
@@ -165,7 +175,7 @@ export default {
   },
   watch: {
     gameItem(newValue, old) {
-      this.gameItemEditForm = { ...this.gameItemEditForm, ...newValue };
+      this.form = { ...this.form, ...newValue };
     }
   },
   methods: {
@@ -177,19 +187,19 @@ export default {
     ...mapActions("competition", [COMPETITION.COMPETITIONS]),
     ...mapActions("odd", [ODD.ODDS]),
     onSubmit() {
-      this.$refs["gameItemEditForm"].validate(async valid => {
+      this.$refs["form"].validate(async valid => {
         if (!valid) {
           return false;
         }
         this.$setLoader();
         try {
-          if (this.mode === "add") {
-            await this.createGameItem(this.gameItemEditForm);
-          } else {
+          if (this.mode === "edit") {
             await this.updateGameItem({
-              payload: this.gameItemEditForm,
+              payload: this.form,
               id: this.gameItem.id
             });
+          } else {
+            await this.createGameItem(this.form);
           }
           this.$offLoader();
         } catch (error) {

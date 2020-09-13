@@ -7,10 +7,10 @@ v2ArticleLink
     >
       <img
         class="v2ArticleLink__image loaded"
-        data-src="https://www.freesupertips.com/wp-content/uploads/2020/07/Manchester_United_Pogba_and_Maguire-Watermarked-1593957223-200x200.jpg"
+        data-src="~/assets/image/pre.jpg"
         alt="Article Link Image"
         lazy-image=""
-        src="https://www.freesupertips.com/wp-content/uploads/2020/07/Manchester_United_Pogba_and_Maguire-Watermarked-1593957223-200x200.jpg"
+        src="~/assets/image/pre.jpg"
         data-was-processed="true"
       />
       <div class="v2ArticleLink__cover">

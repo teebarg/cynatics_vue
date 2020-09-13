@@ -3,14 +3,13 @@
     <el-card class="box-card">
       <div class="team">
         <div>
-          <img src="~/assets/image/club.jpg" alt="Image" />
+          <ImageDisplay :image="gameItem.home_img" />
         </div>
-        <p>Arsenal</p>
+        <p>{{gameItem.home}}</p>
       </div>
       <div class="details">
-        <p>Today</p>
-        <p>20:45</p>
-        <p>Over 2.5</p>
+        <p>{{$moment(gameItem.game_date)}}</p>
+        <p>{{gameItem.odd}}</p>
         <el-button
           size="small"
           type="secondary"
@@ -20,34 +19,19 @@
       </div>
       <div class="team">
         <div>
-          <img src="~/assets/image/club.jpg" alt="Image" />
+          <ImageDisplay :image="gameItem.away_img" />
         </div>
-        <p>Bayerm</p>
+        <p>{{gameItem.away}}</p>
       </div>
     </el-card>
   </div>
 </template>
 <script>
 export default {
-  data() {
-    return {
-      beaf: {
-        title: "A title",
-        default: "A Default title"
-      }
-    };
-  },
-  methods: {
-    test() {
-      alert(5);
-    }
-  },
   props: {
-    data: {
-      type: Array,
-      default() {
-        return [];
-      }
+    gameItem: {
+      type: Object,
+      default: () => {}
     }
   }
 };

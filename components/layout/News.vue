@@ -30,6 +30,13 @@ export default {};
   width: 75%;
 }
 
+@media (max-width: 899px) {
+  .content {
+    padding: 0;
+    width: 100%;
+  }
+}
+
 .NC > div {
   overflow: auto;
 }

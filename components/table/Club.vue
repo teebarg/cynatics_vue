@@ -1,7 +1,7 @@
 <template>
   <el-table :data="clubs" style="width: 100%;" height="100%">
     <el-table-column type="selection" width="55" />
-    <el-table-column label="Image" width="150">
+    <el-table-column label="Image" width="120">
       <template slot-scope="scope">
         <ImageUpload
           action="club/updateClub"

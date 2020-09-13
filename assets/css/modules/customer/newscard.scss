@@ -3,6 +3,9 @@
     padding: 10px;
     display: grid;
     grid-template-rows: 2fr 1fr;
+    @include for-tablet-portrait-up {
+     display: flex;
+    }
   }
 
   .time {
@@ -28,6 +31,9 @@
   .content {
     display: flex;
     flex-direction: column;
+    @include for-tablet-portrait-up {
+      padding: 5px;
+    }
     h6 {
       flex: 1;
     }

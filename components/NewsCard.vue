@@ -3,13 +3,15 @@
     <el-card>
       <div class="">
         <img
-          src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+          src="~/assets/image/pre.jpg"
           class="image"
         />
       </div>
       <div class="content">
-        <h3>Yummy hamburger</h3>
-        <time class="time">{{ currentDate }}</time>
+        <h3>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </h3>
+        <time class="time">{{ $moment(currentDate) }}</time>
       </div>
     </el-card>
   </div>
@@ -21,11 +23,6 @@ export default {
       currentDate: new Date()
     };
   },
-  methods: {
-    test() {
-      alert(5);
-    }
-  },
   props: {
     data: {
       type: Array,
@@ -36,9 +33,3 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped>
-.el-card {
-  background-color: var(--background-primary);
-  color: var(--text-primary);
-}
-</style>

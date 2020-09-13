@@ -2,35 +2,31 @@
   <div class="OfferCard__wrapper">
     <el-card>
       <div class="header">
-        <img
-          src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-          class="image"
-        />
-        <p>Up to 30%</p>
+        <img :src="getAsset(offer.image)" class="image" />
       </div>
       <div class="content">
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum autem
-          ea repellat excepturi. Eligendi illum non doloremque cum cupiditate.
+          {{ offer.message || 'Special Offer for You' }}
         </p>
       </div>
-      <el-button type="primary" size="small">Primary</el-button>
+      <nuxt-link :to="offer.url">
+        <el-button type="primary" size="small">Claim</el-button>
+      </nuxt-link>
     </el-card>
   </div>
 </template>
 <script>
 export default {
   methods: {
-    test() {
-      alert(5);
+    getAsset(e) {
+      if (!e) return "/holder.png";
+      return process.env.ASSET_URL + e.image;
     }
   },
   props: {
-    data: {
-      type: Array,
-      default() {
-        return [];
-      }
+    offer: {
+      type: Object,
+      default: () => {}
     }
   }
 };

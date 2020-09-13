@@ -6,6 +6,9 @@
     <nav id="sidebar" class="sidebar-wrapper">
       <div class="sidebar-content">
         <div class="sidebar-brand">
+          <nuxt-link to="/" class="sub1">
+            Home
+          </nuxt-link>
           <a href="#">Dark Mode</a>
           <el-switch v-model="mode" @change="onChange"> </el-switch>
           <div id="close-sidebar">
@@ -14,16 +17,15 @@
         </div>
         <div class="sidebar-header">
           <div class="user-pic">
-            <img
-              class="img-responsive img-rounded"
-              src="/holder.png"
-              alt="User picture"
-            />
+            <ImageUpload
+            action="user/updateUser"
+            model="user"
+            :imageData="getImageData()"
+          />
           </div>
           <div class="user-info">
-            <span class="user-name"
-              >Jhon
-              <strong>Smith</strong>
+            <span class="user-name">
+              <strong>{{user.username}}</strong>
             </span>
             <span class="user-role">Administrator</span>
             <span class="user-status">
@@ -101,13 +103,13 @@
 <script>
 import Header from "~/components/Header.vue";
 import { Dropdown } from "~/services/dropdown";
-import { Route } from '~/services/constants'
+import { Route } from "~/services/constants";
 
 export default {
   middleware: ["auth", "load-resource"],
   components: { Header },
   data() {
-    return { routes: Route, mode: this.$colorMode.preference === 'dark' }
+    return { routes: Route, mode: this.$colorMode.preference === "dark" };
   },
   mounted() {
     new Dropdown();
@@ -119,14 +121,17 @@ export default {
   },
   methods: {
     onChange(e) {
-      console.log(e)
-      this.$colorMode.preference = e ? 'dark' : 'light'
+      this.$colorMode.preference = e ? "dark" : "light";
     },
     async logout(e) {
       try {
-          await this.$auth.logout();
-          this.$router.push('/');
-        } catch (e) {}
+        await this.$auth.logout();
+        this.$router.push("/");
+      } catch (e) {}
+    },
+    getImageData() {
+      if(!this.user.image) return {id: this.user.id, image: null, imageId: null}
+      return {id: this.user.id, image: this.user.image.image, imageId: this.user.image.id}
     }
   }
 };
@@ -145,8 +150,4 @@ export default {
   display: block;
   padding: 0 40px;
 }
-
-/* .page-content {
-  background-color: var(--background-secondary);
-} */
 </style>

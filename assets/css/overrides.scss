@@ -10,7 +10,8 @@
   padding: 0;
 }
 
-.el-input__inner {
+.el-input__inner,
+.el-textarea__inner {
   background-color: var(--background-primary);
   color: var(--color);
   border-color: var(--divider-primary);
@@ -56,14 +57,6 @@
   background-color: unset;
 }
 
-// .el-table th:hover, .el-table .tr:hover, .el-table .el-table__row:hover, .el-table tr td:hover {
-//   background-color: green !important;
-// }
-
-// .el-table__body-wrapper:hover {
-//   background-color: red;
-// }
-
 button:enabled.el-button--secondary {
   border: 1px solid var(--btn-border-secondary);
   box-shadow: none;
@@ -90,8 +83,6 @@ button:enabled.el-button--secondary {
 .el-button--primary:active,
 .el-button--primary:hover {
   background: var(--color-coral-700);
-  // border-color: darken($color: #ef5466, $amount: 10);
-  // color: #ffffff;
 }
 
 .el-button--secondary {
@@ -125,17 +116,7 @@ button:enabled.el-button--secondary:hover {
 .el-button--success:active,
 .el-button--success:hover {
   background: var(--btn-success);
-  // border-color: darken($color: #ef5466, $amount: 10);
-  // color: #ffffff;
 }
-
-// .el-button--secondary.is-active,
-// .el-button--secondary:active,
-// .el-button--secondary:hover {
-//   background: darken($color: #ef5466, $amount: 10);
-//   border-color: darken($color: #ef5466, $amount: 10);
-//   color: #ffffff;
-// }
 
 .el-pager li.active {
   color: var(--color-coral-700);
@@ -168,6 +149,7 @@ button:enabled.el-button--secondary:hover {
 
 .el-input__inner:focus,
 .el-select .el-input.is-focus .el-input__inner,
+.el-textarea__inner:focus,
 .el-select .el-input__inner:focus {
   border-color: var(--color-accent);
 }
@@ -179,25 +161,31 @@ button:enabled.el-button--secondary:hover {
 }
 
 //Dropdown
+.el-dropdown {
+  width: 100%;
+}
+
 .el-dropdown-menu {
   background-color: var(--background-primary);
   border: 1px solid var(--btn-background-secondary);
+  width: inherit;
+  @include for-tablet-portrait-up {
+    width: 100%;
+  }
 }
 
 .el-dropdown-menu__item:focus,
 .el-dropdown-menu__item:not(.is-disabled):hover,
 .el-dropdown-menu__item a:hover {
   background-color: var(--btn-background-secondary);
-  // color: #66b1ff;
   color: var(--text-primary);
 }
 
 .el-dropdown-menu__item a {
-  // background-color: #ecf5ff;
   color: var(--text-secondary);
 }
 
-.el-popper[x-placement^=bottom] .popper__arrow {
+.el-popper[x-placement^="bottom"] .popper__arrow {
   border-bottom-color: var(--background-primary);
 }
 
@@ -207,4 +195,76 @@ button:enabled.el-button--secondary:hover {
 
 .el-progress__text {
   color: unset;
+}
+
+.el-avatar {
+  display: flex;
+  background: transparent;
+  height: 45px;
+  width: 45px;
+}
+
+.el-avatar > img {
+  max-width: 100%;
+}
+
+.el-transfer-panel {
+  background: transparent;
+}
+
+.el-transfer-panel .el-transfer-panel__header {
+  background: transparent;
+}
+
+.el-transfer-panel .el-transfer-panel__header .el-checkbox .el-checkbox__label {
+  color: var(--text-primary);
+}
+
+.el-transfer-panel__item.el-checkbox {
+  color: var(--text-secondary);
+}
+
+.el-transfer-panel__item:hover {
+  color: var(--text-primary);
+}
+
+.el-checkbox__input.is-checked .el-checkbox__inner,
+.el-radio__input.is-checked .el-radio__inner,
+.el-checkbox__input.is-indeterminate .el-checkbox__inner {
+  background-color: var(--color-coral-400);
+  background: var(--color-coral-400);
+  border-color: var(--color-coral-400);
+}
+
+.el-checkbox__input.is-checked + .el-checkbox__label,
+.el-radio__input.is-checked + .el-radio__label {
+  color: var(--color-coral-400);
+}
+
+.el-checkbox__inner:hover,
+.el-input-number__decrease:hover,
+.el-input-number__increase:hover,
+.el-radio.is-bordered.is-checked,
+.el-radio__inner:hover {
+  border-color: var(--color-coral-400);
+}
+
+.el-button--primary.is-disabled,
+.el-button--primary.is-disabled:active,
+.el-button--primary.is-disabled:focus,
+.el-button--primary.is-disabled:hover {
+  color: var(--color-white);
+  background-color: var(--color-coral-200);
+  border-color: var(--color-coral-200);
+}
+
+.el-switch.is-checked .el-switch__core {
+  border-color: var(--color-coral-400);
+  background-color: var(--color-coral-400);
+}
+
+.el-carousel__container {
+  @include for-tablet-portrait-up {
+    height: 24vh;
+  }
 }

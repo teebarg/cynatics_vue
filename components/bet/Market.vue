@@ -1,31 +1,21 @@
 <template>
   <nuxt-link to="/" class="tip featured-tip">
     <div class="tip-start">
-      <div class="date">August 17</div>
+      <div class="date">{{ $moment(game.game_date) }}</div>
       <div class="time">18:00</div>
     </div>
     <div class="tip-title">
-      <h4>Accumulator Tip</h4>
-      <p class="tip-sub">£10 returns £137.10</p>
+      <h4>{{ game.market_name }}</h4>
+      <p class="tip-sub"><span style="font-size:80%">Total Odds:</span> {{ game.total_odd }}</p>
     </div>
     <div style="clear:both;"></div>
   </nuxt-link>
 </template>
 <script>
 export default {
-  data() {
-    return {
-      tableData: []
-    };
-  },
   methods: {},
   props: {
-    data: {
-      type: Array,
-      default() {
-        return [];
-      }
-    }
+    game: Object
   }
 };
 </script>

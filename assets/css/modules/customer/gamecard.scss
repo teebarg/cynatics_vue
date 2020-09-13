@@ -37,3 +37,23 @@
     margin-bottom: 0;
   }
 }
+
+.Customer__Game--wrapper {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #EBEEF5;
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  .details {
+    flex: 1;
+  }
+
+  .details p:first-child {
+    font-weight: 700;
+  }
+
+  .details p.result{
+    font-size: 80%;
+  }
+}

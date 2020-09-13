@@ -129,6 +129,9 @@ input[type="number"]::-webkit-outer-spin-button {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  @include for-tablet-portrait-up {
+    max-width: 569px;
+  }
 }
 
 .img-center {
@@ -166,27 +169,31 @@ input[type="number"]::-webkit-outer-spin-button {
   background: #f0f9eb;
 }
 
-.el-avatar {
-  display: flex;
-}
-
 .el-menu-item {
   padding: 0 !important;
 }
 
-@media (min-width: 576px) {
+.placeholder {
+  background: var(--color-light-grey-700);
+  height: inherit;
+  min-height: 120px;
+  display: grid;
+  place-items: center;
+}
+
+@media (max-width: 576px) {
   .container {
     max-width: 540px;
   }
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .container {
     max-width: 720px;
   }
 }
 
-@media (min-width: 992px) {
+@media (max-width: 992px) {
   .container {
     max-width: 960px;
   }

@@ -4,8 +4,10 @@
       <nuxt-link to="/">
         Cynatics
       </nuxt-link>
+      <i class="el-icon-edit toggle-btn dropbtn" @click="toggle"></i>
     </h1>
-    <ul class="main-nav">
+
+    <ul class="main-nav" ref="navItem">
       <li>
         <nuxt-link to="/">
           Home
@@ -33,7 +35,7 @@
           </el-dropdown-menu>
         </el-dropdown>
       </li>
-      <li>
+      <li v-if="$auth.loggedIn && $can('edit')">
         <nuxt-link to="/admin">
           Admin
         </nuxt-link>
@@ -48,9 +50,6 @@
           </div>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>Action 1</el-dropdown-item>
-            <el-dropdown-item>Action 2</el-dropdown-item>
-            <el-dropdown-item>Action 3</el-dropdown-item>
-            <el-dropdown-item>Action 4</el-dropdown-item>
             <el-dropdown-item>
               <span @click="logout">Logout</span>
             </el-dropdown-item>
@@ -82,7 +81,7 @@ import { mapState, mapActions } from "vuex";
 
 export default {
   data() {
-    return { mode: this.$colorMode.preference === 'dark'}
+    return { mode: this.$colorMode.preference === "dark" };
   },
   computed: {
     ...mapState("market", ["markets"])
@@ -90,6 +89,9 @@ export default {
   methods: {
     onChange(e) {
       this.$colorMode.preference = e ? "dark" : "light";
+    },
+    toggle() {
+      this.$refs.navItem.classList.toggle("show");
     },
     async logout(e) {
       try {
@@ -114,16 +116,28 @@ a {
 .logo {
   margin: 0;
   font-size: 1.45em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .auth {
   display: flex;
-  place-items: center;
+  align-items: center;
+  justify-content: center;
   height: 100%;
 }
 
 .main-nav {
   margin-top: 5px;
+  display: none;
+  background: inherit;
+  width: 100%;
+  position: absolute;
+}
+.main-nav.show {
+  display: block;
+  z-index: 5;
 }
 .logo a,
 .main-nav a,
@@ -171,14 +185,23 @@ a {
   margin-left: 5px;
 }
 
+.toggle-btn {
+  display: block;
+  margin-right: 5vw;
+  border: 1px solid white;
+  padding: 8px;
+}
+
 /* =================================
   Media Queries
 ==================================== */
 
 @media (min-width: 769px) {
   .header,
-  .main-nav {
+  .main-nav, .main-nav.show {
     display: flex;
+    position: relative;
+    width: auto;
   }
   .header {
     flex-direction: column;
@@ -188,6 +211,9 @@ a {
       margin: 0 auto;
       max-width: 1150px;
     }
+  }
+  .toggle-btn {
+    display: none;
   }
 }
 

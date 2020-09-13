@@ -17,6 +17,7 @@ export const STATUS = Object.freeze({
 
 export const ApiEndPoint = Object.freeze({
   AUTH: "/login",
+  HOME: "/home",
   LOGOUT: "/logout",
   REGISTER: "/register",
   COUNTRY: "/country",
@@ -32,7 +33,9 @@ export const ApiEndPoint = Object.freeze({
   PERMISSION: "/permission",
   MARKET: "/market",
   IMAGE: "/image",
-  USER: "/user"
+  USER: "/user",
+  ADSLOT: "/ad_slot",
+  ADVERT: "/advert",
 });
 
 export const Layout = Object.freeze({
@@ -117,6 +120,20 @@ export const Route = Object.freeze({
       {
         name: "Permission",
         to: "/admin/access/permission"
+      }
+    ]
+  },
+  ADVERT: {
+    name: "Ads Management",
+    fa: "fa fa-tachometer-alt",
+    children: [
+      {
+        name: "Advert",
+        to: "/admin/ads/advert"
+      },
+      {
+        name: "AdSlot",
+        to: "/admin/ads/slot"
       }
     ]
   },

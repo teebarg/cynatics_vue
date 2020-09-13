@@ -2,59 +2,40 @@
   <div class="segment_container">
     <div class="header">
       <div class="header__title">
-        <slot name="title" >
+        <slot name="title">
           Please Provide a Title
         </slot>
       </div>
       <div class="header__icon">
         <i
           class="FSTicon FSTicon--white  "
-          style="background-image: url(https://www.freesupertips.com/wp-content/uploads/2018/09/Horse-Racing-1.png)"
+          style="background-image: url(~/assets/image/plus.png)"
         ></i>
       </div>
     </div>
     <div class="body">
       <slot name="body">
-        Please Provide Body
+        <div class="placeholder">
+          Loading...
+        </div>
       </slot>
     </div>
   </div>
 </template>
 <script>
-export default {
-  data() {
-    return {
-      beaf: {
-        title: "A title",
-        default: "A Default title"
-      }
-    };
-  },
-  methods: {
-    test() {
-      alert(5);
-    }
-  }
-};
+export default {};
 </script>
 <style lang="scss" scoped>
 .segment_container {
-  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .header {
   display: flex;
-  // justify-content: center;
   align-items: center;
-  // padding: 0;
-  // margin: 0;
-  background-color: var(--btn-background-secondary);
+  background-color: var(--color-dark-grey-700);
   border: 1px solid var(--btn-border-secondary);
-  color: var(--btn-secondary);
-  // border: 0.07143rem solid #2f2f2f;
-  // -webkit-box-shadow: 0 0 3px #999;
-  // box-shadow: 0 0 3px #999;
-  // border: 1px solid transparent;
+  color: var(--color-white);
   cursor: pointer;
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
     border-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
@@ -73,14 +54,8 @@ export default {
 .header__title {
   flex: 1;
   padding: 0.35714rem 0.35714rem 0.35714rem 0.71429rem;
-  // font-size: 1rem;
-  // line-height: 1.14286rem;
-  // color: #fff;
-  // text-align: left;
   text-transform: uppercase;
-  // font-weight: 700;
   letter-spacing: 0.05em;
-  // margin: 0;
 }
 
 .header__icon {

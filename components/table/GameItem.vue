@@ -5,6 +5,7 @@
     <el-table-column prop="home" label="Home" />
     <el-table-column prop="away" label="Away" />
     <el-table-column prop="competition" label="Competition" />
+    <el-table-column prop="bookie_odd" label="Game Odd" />
     <el-table-column prop="game_status" label="Status" width="70" />
     <el-table-column label="Odds" width="80">
       <template slot-scope="scope">

@@ -14,8 +14,9 @@
         </template>
       </el-table-column>
       <el-table-column prop="game_number" label="Code" />
-      <el-table-column prop="game_status.status" label="Status" />
-      <el-table-column prop="market.name" label="Market" />
+      <el-table-column prop="game_status_name" label="Status" />
+      <el-table-column prop="total_odd" label="Bet Odd" />
+      <el-table-column prop="market_name" label="Market" />
       <el-table-column label="Odds">
         <template slot-scope="scope">
           <el-button size="small" type="secondary" @click="manageTag(scope.row)">

@@ -1,4 +1,4 @@
-import { ROLE, MARKET, GAME_STATUS, BOOKMAKER } from "~/services/mutants";
+import { ROLE, MARKET, GAME_STATUS, BOOKMAKER, ADSLOT } from "~/services/mutants";
 
 export default async function({ store, from }) {
 
@@ -8,7 +8,8 @@ export default async function({ store, from }) {
     const market = await store.dispatch(`market/${MARKET.MARKETS}`);
     const game_status= await store.dispatch(`gameStatus/${GAME_STATUS.GAME_STATUSES}`);
     const bookmaker= await store.dispatch(`bookmaker/${BOOKMAKER.BOOKMAKERS}`);
+    const ad_slot= await store.dispatch(`adSlot/${ADSLOT.ADSLOTS}`);
 
-    Promise.all([roles, market, game_status, bookmaker]);
+    Promise.all([roles, market, game_status, bookmaker, ad_slot]);
   }
 }

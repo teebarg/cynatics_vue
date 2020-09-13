@@ -33,9 +33,8 @@
   </el-upload>
 </template>
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapActions } from "vuex";
 import { IMAGE } from "~/services/mutants";
-import { STATUS } from "~/services/constants";
 export default {
   data() {
     return {
@@ -56,7 +55,7 @@ export default {
       default: () => ({
         id: null,
         image: "",
-        imageId: null
+        image_id: null
       })
     }
   },

@@ -2,7 +2,7 @@
   <el-pagination
       :current-page="pagination.current_page"
       :hide-on-single-page="true"
-      :page-size="pagination.per_page"
+      :page-size="Number(pagination.per_page)"
       layout="total, prev, pager, next"
       :total="pagination.total"
       @current-change="handleCurrentChange"

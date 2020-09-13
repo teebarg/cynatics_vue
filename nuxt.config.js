@@ -61,7 +61,8 @@ export default {
     '@/plugins/error',
     '@/plugins/ability',
     // '@/plugins/chart',
-    { src: "~/plugins/chart.js", ssr: false}
+    { src: "~/plugins/chart.js", ssr: false},
+    { src: "~/plugins/dropdown.js", ssr: false}
   ],
   /*
   ** Nuxt.js dev-modules

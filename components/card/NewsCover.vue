@@ -9,10 +9,10 @@ v2ArticleLink--card
     >
       <img
         class="v2ArticleLink__image loaded"
-        data-src="https://www.freesupertips.com/wp-content/uploads/2020/01/Christiano_Ronaldo_scores_hat-trick_for_Juventus-min-Watermarked-1578325674-360x261.jpg"
+        data-src="~/assets/image/ncb.jpg"
         alt="Article Link Image"
-        lazy-image=""
-        src="https://www.freesupertips.com/wp-content/uploads/2020/01/Christiano_Ronaldo_scores_hat-trick_for_Juventus-min-Watermarked-1578325674-360x261.jpg"
+        lazy-image="true"
+        src="~/assets/image/ncb.jpg"
         data-was-processed="true"
       />
       <div class="v2ArticleLink__cover">
@@ -30,19 +30,6 @@ v2ArticleLink--card
 </template>
 <script>
 export default {
-  data() {
-    return {
-      beaf: {
-        title: "A title",
-        default: "A Default title"
-      }
-    };
-  },
-  methods: {
-    test() {
-      alert(5);
-    }
-  },
   props: {
     data: {
       type: Array,
