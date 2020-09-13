@@ -21,7 +21,6 @@ export class ErrorHandlerService{
    if (validator) {
     this.error = error;
     this.handleError();
-    console.log(this.formattedError)
     return true;
    }
    return false;

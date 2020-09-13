@@ -52,7 +52,6 @@ export default {
           });
           this.$router.back();
         } catch (e) {
-          console.log(e.response);
         }
         this.$offLoader();
       });

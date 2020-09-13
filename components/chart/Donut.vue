@@ -11,7 +11,6 @@
   </div>
 </template>
 <script>
-// console.log(this.$colorMode)
 const dataSource = {
   chart: {
     caption: "Top 5 countries with Global Oil Reserves",
