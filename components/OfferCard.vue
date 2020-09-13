@@ -21,6 +21,7 @@ export default {
     getAsset(e) {
       if (!e) return "/holder.png";
       console.log(process.env)
+      console.log(process.env.ASSET_URL)
       return process.env.ASSET_URL + e.image;
     }
   },
