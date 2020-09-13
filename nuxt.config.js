@@ -35,7 +35,10 @@ export default {
     ]
   },
   env: {
-    baseUrl: process.env.BASE_URL || 'http://localhost:3000'
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000',
+    ASSET_URL: process.env.ASSET_URL,
+    CONTACT_SITE: process.env.CONTACT_SITE,
+    CONTACT_MAIL: process.env.CONTACT_MAIL
   },
   /*
   ** Customize the progress-bar color
